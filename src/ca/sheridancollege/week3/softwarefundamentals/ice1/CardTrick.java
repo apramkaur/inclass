@@ -1,7 +1,6 @@
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * A class that models playing card Objects. Cards have 
@@ -31,31 +30,26 @@ public class CardTrick {
             System.out.println("Card " + (i + 1) + ": " + magicHand[i].getValue() + " of " + magicHand[i].getSuit());
         }
 
-    
+        
         Card luckyCard = new Card();
-        luckyCard.setValue(7);
-        luckyCard.setSuit("Hearts");
+        luckyCard.setValue(7); 
+        luckyCard.setSuit("Hearts"); 
         System.out.println("Lucky Card: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter card value (1 to 13): ");
-        int userValue = scanner.nextInt();
-        scanner.nextLine(); 
-        System.out.println("Enter card suit (Hearts, Diamonds, Clubs, Spades): ");
-        String userSuit = scanner.nextLine();
-
+       
         boolean found = false;
         for (Card card : magicHand) {
-            if (card.getValue() == userValue && card.getSuit().equalsIgnoreCase(userSuit)) {
+            if (card.getValue() == luckyCard.getValue() && card.getSuit().equalsIgnoreCase(luckyCard.getSuit())) {
                 found = true;
                 break;
             }
         }
 
+       
         if (found) {
-            System.out.println("Your card is in the magic hand!");
+            System.out.println("Congratulations! The lucky card is in the magic hand!");
         } else {
-            System.out.println("Your card is not in the magic hand.");
+            System.out.println("Sorry, the lucky card is not in the magic hand.");
         }
     }
 }
